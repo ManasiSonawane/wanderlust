@@ -6,6 +6,7 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+//const wrapAsync = require("./utils/wrapAsync.js");
 const app = express();
 const PORT = 8080;
 const MONGO_URL =
@@ -82,6 +83,7 @@ app.get("/listings/:id", async (req, res) => {
   const listing = await Listing.findById(id);
   res.render("listings/show.ejs", { listing });
 });
+//Create Route
 
 app.post("/listings", async (req, res) => {
   try {
@@ -123,6 +125,9 @@ app.delete("/listings/:id", async (req, res) => {
   console.log(deletedListing);
   res.redirect("/listings");
 });
+//app.use((err,req,res,next) =>{
+ // res.send("Somethimg went wrong");
+//})
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

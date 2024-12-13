@@ -4,37 +4,42 @@
   <div class="col-8 offset-2">
   
     <h3>Edit your Listing</h3>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT"novalidate class="needs-validation">
       
       <div class="mb-3">
         <label for="title" class="form-label">Title </label>
-      <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control"/>
-       </div> 
+      <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
+      <div class="valid-feedback">Product looks good ! </div>  
+    </div> 
 
        <div class="mb-3">
         <label for="description" class="form-label">Description </label>
-        <textarea name="listing[description]" class="form-control">
+        <textarea name="listing[description]" class="form-control" required>
            <%= listing.description %></textarea
         >
+        <div class="invalid-feedback"> Please enter short Description</div>
        </div>
         
        <div class="mb-3">
         <label for="image" class="form-label">Image link </label>
-        <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control"/>
-       </div>
+        <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control"required/>
+        <div class="invalid-feedback"> Image link should be valid</div>  
+      </div>
 <div class="row">
        <div class="mb-3 col-md-4">
         <label for="price" class="form-label">Price</label>
-        <input name="listing[price]" value="<%= listing.price %>" type="number"class="form-control" />
-       </div>
+        <input name="listing[price]" value="<%= listing.price %>" type="number"class="form-control" required />
+        <div class="invalid-feedback"> Price should be valid</div> 
+      </div>
 
        <div class="mb-3 col-md-8">
         <label for="country" class="form-label">Country </label>
         <input
           name="listing[country]"
           value="<%= listing.country %>"
-          type="text"class="form-control"
+          type="text"class="form-control"required
         />
+        <div class="invalid-feedback"> Country should be valid</div> 
       </div>
     </div>
 
@@ -44,32 +49,39 @@
         <input
           name="listing[location]"
           value="<%= listing.location %>"
-          type="text"class="form-control"
+          type="text"class="form-control"required
         />
+        <div class="invalid-feedback"> Location should be valid</div>
       </div>
         
       <div class="mb-3  col-md-8">
         <label for="unit" class="form-label">Unit </label>
-      <input name="listing[unit]" value="<%= listing.unit %>" type="text"class="form-control" />
-      </div>
+      <input name="listing[unit]" value="<%= listing.unit %>" type="text"class="form-control"required />
+      <div class="invalid-feedback"> Unit should be valid</div>  
+    </div>
     </div>
 
       <div class="mb-3">
         <label for="enquiry" class="form-label">Enquiry </label>
       <input name="listing[enquiry]" value="<%= listing.enquiry %>" type="text"class="form-control" />
-      </div>
+      <div class="invalid-feedback"> Enquiry should be valid</div>  
+    </div>
 
       <div class="mb-3">
         <label for="email" class="form-label">Email </label>
-      <input name="listing[email]" value="<%= listing.email %>" type="text" class="form-control"/>
-      </div>
+      <input name="listing[email]" value="<%= listing.email %>" type="text" class="form-control"required/>
+      
+      <div class="invalid-feedback"> Email should be valid</div>
+    </div>
 
       <div class="mb-3">
         <label for="number" class="form-label">Number </label>
-      <input name="listing[number]" value="<%= listing.number %>" type="number"class="form-control" />
-      </div>
+      <input name="listing[number]" value="<%= listing.number %>" type="text"class="form-control"required />
+      <div class="invalid-feedback"> Number should be valid</div>
+    </div>
       <button class="btn btn-dark edit-btn mt-3">Edit</button>
       <br/><br/>
     </form>
   </div>
 </div>
+<script src="/js/script.js"></script>
