@@ -3,9 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 
-const path = require('path');
+const path = require("path");
 const methodOverride = require("method-override");
-const ejsMate = require ("ejs-mate");
+const ejsMate = require("ejs-mate");
 const app = express();
 const PORT = 8080;
 const MONGO_URL =
@@ -26,12 +26,12 @@ async function main() {
     useUnifiedTopology: true,
   });
 }
-app.set("view engine","ejs");
-app.set("views", path.join(__dirname,"views"));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.engine('ejs', ejsMate);
-app.use(express.static(path.join(__dirname,"/public")));
+app.engine("ejs", ejsMate);
+app.use(express.static(path.join(__dirname, "/public")));
 
 // Routes
 // Root route
@@ -68,21 +68,33 @@ app.get("/", (req, res) => {
 
 // Fetch all listings  index route
 app.get("/listings", async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", { allListings });
-  });
-  //New Route
+  const allListings = await Listing.find({});
+  res.render("listings/index.ejs", { allListings });
+});
+//New Route
 app.get("/listings/new", (req, res) => {
   res.render("listings/new.ejs");
 });
 
-  //Show Route
+//Show Route
 app.get("/listings/:id", async (req, res) => {
-    let { id } = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listings/show.ejs", { listing });
-  });
-  
+  let { id } = req.params;
+  const listing = await Listing.findById(id);
+  res.render("listings/show.ejs", { listing });
+});
+
+app.post("/listings", async (req, res) => {
+  try {
+    const newListing = new Listing(req.body.listing);
+    console.log(newListing);
+    await newListing.save();
+    res.redirect("/listings");
+  } catch (error) {
+    console.error("Error creating listing:", error);
+    res.status(500).send("Failed to create listing");
+  }
+});
+
 //Create Route
 /*app.post("/listings", async (req, res) => {
   const newListing = new Listing(req.body.listing);
@@ -91,11 +103,13 @@ app.get("/listings/:id", async (req, res) => {
 });*/
 
 //Edit Route
+
 app.get("/listings/:id/edit", async (req, res) => {
   let { id } = req.params;
   const listing = await Listing.findById(id);
   res.render("listings/edit.ejs", { listing });
 });
+
 //Update Route
 app.put("/listings/:id", async (req, res) => {
   let { id } = req.params;

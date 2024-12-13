@@ -1,47 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlust</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderlust</title>
 </head>
+
 <body>
-    <h3>Create a New Listing</h3>
-    <form method="POST" action="/listings">
-      <input name="listing[title]" placeholder="enter title" type="text" />
-      <br />
-      <br />
-      <textarea
-        name="listing[description]"
-        placeholder="enter description"
-      ></textarea>
-      <br/>
-      <br />
-      <input
-        name="listing[image]"
-        placeholder="enter image URL/Link"
-        type="text"
-      />
-      <br /><br />
-      <input name="listing[price]" placeholder="enter price" type="number" />
-      <br /><br />
-      <input name="listing[country]" placeholder="enter country" type="text" />
-      <br /><br />
-      <input
-        name="listing[location]"
-        placeholder="enter location"
-        type="text"
-      />
-      <br /><br />
-      <input name="listing[unit]" placeholder="enter unit" type="text" />
-      <br /><br />
-      <input name="listing[enquiry]" placeholder="enter enquiry" type="text" />
-      <br /><br />
-      <input name="listing[email]" placeholder="enter email" type="text" />
-      <br /><br />
-      <input name="listing[number]" placeholder="enter number" type="number" />
-      <br /><br />
-      <button>Add</button>
-    </form>
+  <h3>Create a New Listing</h3>
+  <form method="POST" action="/listings">
+    <input name="listing[title]" placeholder="Enter title" type="text" required />
+    <br /><br />
+    <textarea name="listing[description]" placeholder="Enter description" required></textarea>
+    <br /><br />
+    <!-- Image URL input -->
+    <input name="listing[image][url]" placeholder="Enter image URL" type="text" required />
+    <br /><br />
+    <!-- Image filename input -->
+    <input name="listing[image][filename]" placeholder="Enter image filename" type="text" required />
+    <br /><br />
+    <input name="listing[price]" placeholder="Enter price" type="number" required />
+    <br /><br />
+    <input name="listing[country]" placeholder="Enter country" type="text" required />
+    <br /><br />
+    <input name="listing[location]" placeholder="Enter location" type="text" required />
+    <br /><br />
+    <input name="listing[unit]" placeholder="Enter unit" type="text" required />
+    <br /><br />
+    <input name="listing[enquiry]" placeholder="Enter enquiry" type="text" required />
+    <br /><br />
+    <input name="listing[email]" placeholder="Enter email" type="email" required />
+    <br /><br />
+    <input name="listing[number]" placeholder="Enter number" type="text" required />
+    <br /><br />
+    <button type="submit">Add</button>
+  </form>
 </body>
+
 </html>
