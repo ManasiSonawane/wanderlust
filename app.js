@@ -98,11 +98,16 @@ app.post("/listings", async (req, res) => {
 });
 
 //Create Route
-/*app.post("/listings", async (req, res) => {
-  const newListing = new Listing(req.body.listing);
-  await newListing.save();
-  res.redirect("/listings");
-});*/
+// app.post("/listings", async (req, res, next) => {
+//   try {
+//     const newListing = new Listing(req.body.listing);
+//     await newListing.save();
+//     res.redirect("/listings");
+//   } catch (err) {
+//     console.log(err);
+//     next(err);
+//   }
+// });
 
 //Edit Route
 
@@ -125,9 +130,9 @@ app.delete("/listings/:id", async (req, res) => {
   console.log(deletedListing);
   res.redirect("/listings");
 });
-//app.use((err,req,res,next) =>{
- // res.send("Somethimg went wrong");
-//})
+app.use((err, req, res, next) => {
+  res.send("Somethimg went wrong");
+});
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

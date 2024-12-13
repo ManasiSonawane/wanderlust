@@ -1,87 +1,106 @@
-<% layout("/layouts/boilerplate")%>
+<% layout("/layouts/boilerplate") %>
 
-<div class="row mt-3">
-  <div class="col-8 offset-2">
-  
-    <h3>Edit your Listing</h3>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT"novalidate class="needs-validation">
-      
-      <div class="mb-3">
-        <label for="title" class="form-label">Title </label>
-      <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
-      <div class="valid-feedback">Product looks good ! </div>  
-    </div> 
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h3>Edit Your Listing</h3>
+      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation">
 
-       <div class="mb-3">
-        <label for="description" class="form-label">Description </label>
-        <textarea name="listing[description]" class="form-control" required>
-           <%= listing.description %></textarea
-        >
-        <div class="invalid-feedback"> Please enter short Description</div>
-       </div>
-        
-       <div class="mb-3">
-        <label for="image" class="form-label">Image link </label>
-        <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control"required/>
-        <div class="invalid-feedback"> Image link should be valid</div>  
-      </div>
-<div class="row">
-       <div class="mb-3 col-md-4">
-        <label for="price" class="form-label">Price</label>
-        <input name="listing[price]" value="<%= listing.price %>" type="number"class="form-control" required />
-        <div class="invalid-feedback"> Price should be valid</div> 
-      </div>
+        <!-- Title -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input id="title" name="listing[title]" value="<%= listing.title %>" type="text" class="form-control"
+            required />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please provide a title.</div>
+        </div>
 
-       <div class="mb-3 col-md-8">
-        <label for="country" class="form-label">Country </label>
-        <input
-          name="listing[country]"
-          value="<%= listing.country %>"
-          type="text"class="form-control"required
-        />
-        <div class="invalid-feedback"> Country should be valid</div> 
-      </div>
+        <!-- Description -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea id="description" name="listing[description]" class="form-control" rows="3"
+            required><%= listing.description %></textarea>
+          <div class="invalid-feedback">Please enter a short description.</div>
+        </div>
+
+        <!-- Image URL Input -->
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Image URL</label>
+          <input id="imageUrl" name="listing[image][url]" value="<%= listing.image.url %>" placeholder="Enter image URL"
+            type="text" class="form-control" required />
+          <div class="invalid-feedback">Please provide a valid image URL.</div>
+        </div>
+
+        <!-- Image Filename Input -->
+        <div class="mb-3">
+          <label for="filename" class="form-label">Image Filename</label>
+          <input id="filename" name="listing[image][filename]" value="<%= listing.image.filename %>"
+            placeholder="Enter image filename" type="text" class="form-control" required />
+          <div class="invalid-feedback">Please provide a valid image filename.</div>
+        </div>
+
+        <div class="row">
+          <!-- Price -->
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input id="price" name="listing[price]" value="<%= listing.price %>" type="number" class="form-control"
+              required />
+            <div class="invalid-feedback">Please provide a valid price.</div>
+          </div>
+
+          <!-- Country -->
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input id="country" name="listing[country]" value="<%= listing.country %>" type="text" class="form-control"
+              required />
+            <div class="invalid-feedback">Please provide a valid country name.</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Location -->
+          <div class="mb-3 col-md-4">
+            <label for="location" class="form-label">Location</label>
+            <input id="location" name="listing[location]" value="<%= listing.location %>" type="text"
+              class="form-control" required />
+            <div class="invalid-feedback">Please provide a valid location.</div>
+          </div>
+
+          <!-- Unit -->
+          <div class="mb-3 col-md-8">
+            <label for="unit" class="form-label">Unit</label>
+            <input id="unit" name="listing[unit]" value="<%= listing.unit %>" type="text" class="form-control"
+              required />
+            <div class="invalid-feedback">Please provide a valid unit.</div>
+          </div>
+        </div>
+
+        <!-- Enquiry -->
+        <div class="mb-3">
+          <label for="enquiry" class="form-label">Enquiry</label>
+          <input id="enquiry" name="listing[enquiry]" value="<%= listing.enquiry %>" type="text" class="form-control" />
+          <div class="invalid-feedback">Please provide valid enquiry information.</div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" name="listing[email]" value="<%= listing.email %>" type="email" class="form-control"
+            required />
+          <div class="invalid-feedback">Please provide a valid email address.</div>
+        </div>
+
+        <!-- Number -->
+        <div class="mb-3">
+          <label for="number" class="form-label">Number</label>
+          <input id="number" name="listing[number]" value="<%= listing.number %>" type="text" class="form-control"
+            required />
+          <div class="invalid-feedback">Please provide a valid contact number.</div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-dark edit-btn mt-3">Save Changes</button>
+      </form>
     </div>
-
-    <div class="row">
-      <div class="mb-3  col-md-4">
-        <label for="location" class="form-label">Location </label>
-        <input
-          name="listing[location]"
-          value="<%= listing.location %>"
-          type="text"class="form-control"required
-        />
-        <div class="invalid-feedback"> Location should be valid</div>
-      </div>
-        
-      <div class="mb-3  col-md-8">
-        <label for="unit" class="form-label">Unit </label>
-      <input name="listing[unit]" value="<%= listing.unit %>" type="text"class="form-control"required />
-      <div class="invalid-feedback"> Unit should be valid</div>  
-    </div>
-    </div>
-
-      <div class="mb-3">
-        <label for="enquiry" class="form-label">Enquiry </label>
-      <input name="listing[enquiry]" value="<%= listing.enquiry %>" type="text"class="form-control" />
-      <div class="invalid-feedback"> Enquiry should be valid</div>  
-    </div>
-
-      <div class="mb-3">
-        <label for="email" class="form-label">Email </label>
-      <input name="listing[email]" value="<%= listing.email %>" type="text" class="form-control"required/>
-      
-      <div class="invalid-feedback"> Email should be valid</div>
-    </div>
-
-      <div class="mb-3">
-        <label for="number" class="form-label">Number </label>
-      <input name="listing[number]" value="<%= listing.number %>" type="text"class="form-control"required />
-      <div class="invalid-feedback"> Number should be valid</div>
-    </div>
-      <button class="btn btn-dark edit-btn mt-3">Edit</button>
-      <br/><br/>
-    </form>
   </div>
-</div>
-<script src="/js/script.js"></script>
+
+  <script src="/js/script.js"></script>
