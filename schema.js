@@ -1,5 +1,6 @@
 const Joi = require("joi");
 
+// Define the schema for server-side validation
 const listingSchema = Joi.object({
   listing: Joi.object({
     title: Joi.string().min(3).max(100).required().messages({
@@ -17,48 +18,53 @@ const listingSchema = Joi.object({
         "string.empty": "Image URL is required.",
         "string.uri": "Image URL must be a valid URI.",
       }),
-      filename: Joi.string().required().messages({
-        "string.empty": "Filename is required.",
+      filename: Joi.string().min(3).max(100).required().messages({
+        "string.empty": "Image filename is required.",
       }),
-    }).required(),
-    price: Joi.number().positive().precision(2).required().messages({
-      "number.base": "Price must be a number.",
-      "number.positive": "Price must be a positive number.",
-      "any.required": "Price is required.",
-    }),
-    location: Joi.string().min(3).max(255).required().messages({
-      "string.empty": "Location is required.",
-      "string.min": "Location must be at least 3 characters long.",
-    }),
-    country: Joi.string().min(3).max(50).required().messages({
-      "string.empty": "Country is required.",
-    }),
-    unit: Joi.string()
-      .valid("Villa", "Apartment", "Cottage", "Studio")
+    })
       .required()
       .messages({
-        "any.only":
-          "Unit must be one of 'Villa', 'Apartment', 'Cottage', or 'Studio'.",
-        "string.empty": "Unit is required.",
+        "object.base": "Image field is required.",
       }),
-    enquiry: Joi.string().max(500).optional().messages({
-      "string.max": "Enquiry must not exceed 500 characters.",
+    price: Joi.number().positive().required().messages({
+      "number.base": "Price must be a valid number.",
+      "number.positive": "Price must be a positive value.",
+      "any.required": "Price is required.",
+    }),
+    country: Joi.string().min(2).max(50).required().messages({
+      "string.empty": "Country is required.",
+      "string.min": "Country must be at least 2 characters long.",
+      "string.max": "Country cannot exceed 50 characters.",
+    }),
+    location: Joi.string().min(2).max(100).required().messages({
+      "string.empty": "Location is required.",
+      "string.min": "Location must be at least 2 characters long.",
+      "string.max": "Location cannot exceed 100 characters.",
+    }),
+    unit: Joi.string().min(1).max(50).required().messages({
+      "string.empty": "Unit is required.",
+      "string.min": "Unit must be at least 1 character long.",
+      "string.max": "Unit cannot exceed 50 characters.",
+    }),
+    enquiry: Joi.string().allow("").optional().messages({
+      "string.base": "Enquiry must be a string.",
     }),
     email: Joi.string().email().required().messages({
       "string.email": "Email must be a valid email address.",
       "string.empty": "Email is required.",
     }),
-    number: Joi.number()
-      .integer()
-      .min(1000000000)
-      .max(9999999999)
+    number: Joi.string()
+      .pattern(/^[0-9+() -]+$/)
+      .min(6)
+      .max(15)
       .required()
       .messages({
-        "number.base": "Number must be a valid integer.",
-        "number.min": "Number must be a 10-digit phone number.",
-        "number.max": "Number must be a 10-digit phone number.",
+        "string.pattern.base": "Number must be a valid contact number.",
+        "string.empty": "Number is required.",
+        "string.min": "Number must be at least 6 characters long.",
+        "string.max": "Number cannot exceed 15 characters.",
       }),
   }).required(),
 });
 
-module.exports = listingSchema;
+module.exports = { listingSchema };

@@ -228,7 +228,7 @@ body {
   }
 }
 
-.btn-create {
+/* .btn-create {
   cursor: pointer;
   border: solid rgb(24, 26, 13);
   font-family: Lato;
@@ -249,4 +249,25 @@ body {
 
 .btn-create:hover {
   transform: scale(1.1); /* Zoom in effect */
+
+.btn-create {
+  min-width: 130px;
+  margin: 13px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #efefef;
+  box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+  color: #000000;
+}
+.btn-create:active {
+  box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
 }
