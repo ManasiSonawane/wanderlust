@@ -8,6 +8,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
+const Review = require("./models/review.js");
 const app = express();
 const PORT = 8080;
 const MONGO_URL =
@@ -157,6 +158,19 @@ app.delete(
     res.redirect("/listings");
   })
 );
+
+//review
+//post
+app.post("/listing/:id/reviews", async(req, res)=>{
+let listing= await Listing.findById(req.params.id)
+let newReview = new Review(req.body.review);
+
+listing.reviews.push(newReview);
+await newReview.save();
+await listing.save();
+console.log("new review saved");
+res.send("new review saved");
+});
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found"));
