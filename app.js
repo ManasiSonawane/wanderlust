@@ -11,6 +11,16 @@ const ExpressError = require("./utils/ExpressError.js");
 const Review = require("./models/review.js");
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
+const session = require("express-session");
+const flash = require("connect-flash");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js");
+
+
+
+
+
 const app = express();
 const PORT = 8080;
 const MONGO_URL =
@@ -38,64 +48,48 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+const sessionOptions = {
+  secret:"mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie:{
+  expires:Date.now()+7 * 24 * 60* 60 * 1000,
+  maxAge:7 * 24 * 60* 60 * 1000,
+  httpOnly: true,
+},
+} ;
+
 // Routes
 // Root route
 app.get("/", (req, res) => {
   res.send("Welcome to Wanderlust API!");
 });
 
-// Create a sample listing for testing
-/*app.get("/testListing", async (req, res) => {
-  try {
-    let sampleListing = new Listing({
-      title: "My Home",
-      description: "By the beach",
-      image: {
-        url: "https://example.com/image.jpg",
-        filename: "image.jpg",
-      },
-      price: 1200,
-      location: "Calangute, Goa",
-      country: "India",
-      unit: "Villa",
-      enquiry: "Contact for more details",
-      email: "owner@example.com",
-      number: 9876543210,
-    });
-    await sampleListing.save();
-    console.log("Sample listing was saved");
-    res.status(201).send("Sample listing created successfully");
-  } catch (error) {
-    console.error("Error creating sample listing:", error);
-    res.status(500).send("Failed to create sample listing");
-  }
-});*/
-//const validateListing = (req,res,next) =>{
-// let { error} = listingSchema.validate(req.body);
-//if (error){
-////  let errMsg = error.details.map((el)=> el.message).join(",");
+app.use(session(sessionOptions));
+app.use(flash());
 
-//}else{
-//   next();
-//}
-//};
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-//Create Route ara
+app.use((req, res,next )=>{
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+ next();
+})
 
-//app.post("/listings", async (req, res) => {
-//try {
-//const newListing = new Listing(req.body.listing);
-//console.log(newListing);
-//await newListing.save();
-//res.redirect("/listings");
-//} catch (error) {
-//console.error("Error creating listing:", error);
-//res.status(500).send("Failed to create listing");
-// }
-//});
+app.get("/demouser" ,async (req, res) =>{
+let fakeUser = new User({
+  email: "student@gmail.com",
+  username: "delta-Student"
+});
+let registeredUser= await User.register(fakeUser,"helloworld");
+res.send(registeredUser);
+});
 
 app.use("/listings", listings);
-
 app.use("/listings/:id/reviews", reviews);
 
 app.all("*", (req, res, next) => {
