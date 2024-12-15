@@ -1,4 +1,3 @@
-/*testcode*/
 const express = require("express");
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
@@ -56,20 +55,21 @@ const sessionOptions = {
 };
 
 // Routes
-// Root route
+// Root route (Welcome page)
 app.get("/", (req, res) => {
-  res.send("Welcome to SmartTrade API!");
+  res.render("welcome"); // This will render the 'welcome.ejs' file
 });
 
+// User session and passport setup
 app.use(session(sessionOptions));
 app.use(flash());
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Set up flash messages and user info globally
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
@@ -77,15 +77,7 @@ app.use((req, res, next) => {
   next();
 });
 
-//app.get("/demouser" ,async (req, res) =>{
-//let fakeUser = new User({
-//email: "student@gmail.com",
-//username: "delta-Student"
-//});
-//let registeredUser= await User.register(fakeUser,"helloworld");
-//res.send(registeredUser);
-//});
-
+// Use routes for different paths
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
@@ -99,6 +91,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { message });
   //res.status(statusCode).send(message);
 });
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

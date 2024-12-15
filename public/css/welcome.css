@@ -1,0 +1,154 @@
+/* General Styling for Full-Screen Layout */
+.full-screen-container {
+  min-height: 100vh; /* Ensure the container takes up the full height of the screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+  align-items: center; /* Center the content horizontally */
+  padding: 0; /* Remove padding to ensure it fits perfectly */
+}
+
+/* Card Styling */
+.custom-card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure card height is consistent */
+}
+
+/* Card Image Styling */
+.card-img-top {
+  height: 250px; /* Set a fixed height for the image */
+  width: 100%; /* Ensure image spans the full width of the card */
+  object-fit: cover; /* Crop the image to fill the space */
+  transition: transform 0.3s ease;
+}
+
+/* Card Body Styling */
+.card-body {
+  background-color: white;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+/* Hover Effects for Card */
+.custom-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Title Styling */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Button Styling */
+.btn-primary {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Styling for the Footer */
+.mt-5 p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Make sure the content is responsive */
+@media (max-width: 992px) {
+  .col-md-6 {
+    width: 100%; /* Ensure cards take full width on smaller screens */
+  }
+}
+
+/* Fade-in Effect for Title */
+.title-fade {
+  opacity: 0;
+  animation: fadeInUp 2s forwards;
+}
+
+/* Fade-in Effect for Cards */
+.card-fade {
+  opacity: 0;
+  animation: fadeInUp 2s 1s forwards; /* Delay the animation for cards */
+}
+
+/* Animation for Fade-in and Move-up */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Space between cards */
+.row {
+  gap: 30px; /* Adjust the gap between the cards */
+}
+
+/* No Scrolling */
+html,
+body {
+  overflow: hidden; /* Prevent scrolling */
+  height: 100%;
+}
+
+/* Button Container - Centered */
+.card-body {
+  display: flex; /* Use Flexbox */
+  flex-direction: column; /* Stack buttons vertically */
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+  height: 100%; /* Ensure it takes up full height of the card */
+  padding: 20px;
+}
+
+/* Small Button Styling with Glow Effect */
+.btn-primary {
+  padding: 6px 20px; /* Smaller padding for more compact buttons */
+  font-size: 0.875rem; /* Slightly smaller font size */
+  border-radius: 20px; /* Rounded corners */
+  transition: box-shadow 0.3s ease; /* Smooth transition for glow effect */
+  background-color: #007bff; /* Default background color */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  max-width: 200px; /* Set a maximum width to prevent buttons from being too wide */
+  display: inline-block; /* Keep the buttons inline with each other */
+  text-align: center; /* Center the text */
+}
+
+/* Hover Glow Effect */
+.btn-primary:hover {
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); /* Subtle blue glow on hover */
+  background-color: #0069d9; /* Darker blue on hover */
+}
+
+/* Focus Effect */
+.btn-primary:focus {
+  outline: none;
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 768px) {
+  .btn-primary {
+    font-size: 0.75rem; /* Reduce font size further on small screens */
+    padding: 5px 15px; /* Reduce padding for smaller screens */
+    max-width: 150px; /* Set a smaller max-width on small screens */
+  }
+  .card-img-top {
+    height: 200px; /* Adjust image height on smaller screens */
+  }
+}

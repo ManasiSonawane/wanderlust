@@ -372,3 +372,61 @@ footer {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7), 0 12px 40px rgba(0, 0, 0, 0.7); /* Increased opacity */
   transform: translateY(-5px); /* Slightly lift the card on hover */
 }
+.rating-stars {
+  display: flex;
+  justify-content: flex-start; /* Ensure stars appear from left to right */
+}
+
+.rating-stars input[type="radio"] {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 2rem;
+  color: #d3d3d3;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  margin-right: 5px; /* Space between stars */
+}
+
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars label:hover,
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars label:hover ~ label {
+  color: gold;
+}
+
+.rating-stars input[type="radio"]:checked ~ label,
+.rating-stars input[type="radio"]:checked:hover ~ label {
+  transition: color 0.2s ease-in-out;
+}
+/* Butt/* Button Styling */
+.css-button-neumorphic {
+  min-width: 130px;
+  height: 40px;
+  color: #313030; /* Text color remains the same */
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #efefef;
+  box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
+  text-align: center;
+}
+
+/* Active effect */
+.css-button-neumorphic:active {
+  box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+}
+
+/* Hover effect: Invert background color, preserve text color */
+.css-button-neumorphic:hover {
+  background: #7a7979; /* Dark background color */
+  color: #fff; /* White text color */
+  box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff; /* Maintain shadow effect */
+}

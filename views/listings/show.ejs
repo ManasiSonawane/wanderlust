@@ -15,7 +15,6 @@
               <div class="card-body">
                 <h5 class="card-title">Title: <%= listing.title %>
                 </h5>
-
                 <p class="card-text">Owner: <%= listing.owner.username %>
                 </p>
                 <p class="card-text">Description: <%= listing.description %>
@@ -38,56 +37,77 @@
               </div>
       </div>
 
-      <div class="d-flex justify-content-between">
-        <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary">Edit this Listing</a>
-        <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-          <button class="btn btn-danger"
-            onclick="return confirm('Are you sure you want to delete this listing?')">Delete this Listing</button>
-        </form>
-      </div>
-
-      <div class="col-7 offset-3 mb-3">
-        <hr />
-        <h4>Leave a Review</h4>
-        <form action="/listings/<%= listing._id %>/reviews" method="POST" novalidate class="needs-validation">
-          <div class="mb-3 mt-3">
-            <label for="rating" class="form-label">Rating</label>
-            <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range" required>
-            <div class="invalid-feedback">Please provide a rating.</div>
-          </div>
-          <div class="mb-3 mt-3">
-            <label for="comment" class="form-label">Comments</label>
-            <textarea name="review[comment]" id="comment" cols="40" rows="5" class="form-control" required></textarea>
-            <div class="invalid-feedback">Please add some comments for your review.</div>
-          </div>
-          <button class="btn btn-outline-dark">Submit</button>
-        </form>
-        <hr />
-        <p><b>All Reviews</b></p>
-
-        <div class="row">
-          <% if (listing.reviews && listing.reviews.length> 0) { %>
-            <% for (let review of listing.reviews) { %>
-              <div class="card col-12 mb-3">
-                <div class="card-body">
-                  <p class="card-text"><strong>Rating:</strong>
-                    <%= review.rating %> / 5
-                  </p>
-                  <p class="card-text"><strong>Comment:</strong>
-                    <%= review.comment %>
-                  </p>
-                  <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST"
-                    class="d-inline">
-                    <button class="btn btn-outline-danger btn-sm"
-                      onclick="return confirm('Are you sure you want to delete this review?')">Delete</button>
-                  </form>
-                </div>
-              </div>
-              <% } %>
-                <% } else { %>
-                  <p>No reviews yet for this listing.</p>
-                  <% } %>
+      <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
+        <div class="d-flex justify-content-between mb-3">
+          <a href="/listings/<%= listing._id %>/edit" class="btn btn-primary">Edit this Listing</a>
+          <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+            <button class="btn btn-danger"
+              onclick="return confirm('Are you sure you want to delete this listing?')">Delete this Listing</button>
+          </form>
         </div>
-      </div>
+        <% } %>
+
+          <% if (currUser) { %>
+            <div class="mb-5">
+              <hr />
+              <h4 class="mb-3">Leave a Review</h4>
+              <form action="/listings/<%= listing._id %>/reviews" method="POST" novalidate class="needs-validation">
+                <div class="mb-3">
+                  <label for="rating" class="form-label">Rating</label>
+                  <div class="rating-stars">
+                    <input type="radio" id="star5" name="review[rating]" value="5"><label for="star5">&#9733;</label>
+                    <input type="radio" id="star4" name="review[rating]" value="4"><label for="star4">&#9733;</label>
+                    <input type="radio" id="star3" name="review[rating]" value="3"><label for="star3">&#9733;</label>
+                    <input type="radio" id="star2" name="review[rating]" value="2"><label for="star2">&#9733;</label>
+                    <input type="radio" id="star1" name="review[rating]" value="1"><label for="star1">&#9733;</label>
+                  </div>
+                  <div class="invalid-feedback">Please provide a rating.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="comment" class="form-label">Comments</label>
+                  <textarea name="review[comment]" id="comment" cols="40" rows="5" class="form-control"
+                    required></textarea>
+                  <div class="invalid-feedback">Please add some comments for your review.</div>
+                </div>
+                <button class="btn btn-outline-dark">Submit</button>
+              </form>
+            </div>
+            <% } %>
+
+              <hr />
+              <h5><strong>All Reviews</strong></h5>
+
+              <div class="row">
+                <% if (listing.reviews && listing.reviews.length> 0) { %>
+                  <% for (let review of listing.reviews) { %>
+                    <div class="col-12 mb-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="d-flex justify-content-between">
+                            <h5 class="card-title">Review by: <%= review.author.username %>
+                            </h5>
+                            <p class="card-text"><strong>Rating:</strong>
+                              <%= review.rating %> / 5
+                            </p>
+                          </div>
+                          <p class="card-text"><strong>Comment:</strong>
+                            <%= review.comment %>
+                          </p>
+                          <% if (currUser && currUser._id.equals(review.author._id)) { %>
+                            <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                              method="POST" class="d-inline">
+                              <button class="btn btn-outline-danger btn-sm"
+                                onclick="return confirm('Are you sure you want to delete this review?')">Delete</button>
+                            </form>
+                            <% } %>
+                        </div>
+                      </div>
+                    </div>
+                    <% } %>
+                      <% } else { %>
+                        <p>No reviews yet for this listing.</p>
+                        <% } %>
+              </div>
     </div>
+  </div>
   </div>
