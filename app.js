@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
-const { listingSchema,reveiwSchema } = require("./schema.js");
+const { listingSchema, reviewSchema } = require("./schema.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
@@ -71,16 +71,14 @@ app.get("/", (req, res) => {
   }
 });*/
 //const validateListing = (req,res,next) =>{
- // let { error} = listingSchema.validate(req.body);
-  //if (error){
-  ////  let errMsg = error.details.map((el)=> el.message).join(",");
+// let { error} = listingSchema.validate(req.body);
+//if (error){
+////  let errMsg = error.details.map((el)=> el.message).join(",");
 
-  //}else{
- //   next();
-  //}
+//}else{
+//   next();
+//}
 //};
-
-
 
 //Create Route ara
 
@@ -96,10 +94,9 @@ app.get("/", (req, res) => {
 // }
 //});
 
-app.use("/listings",listings);
+app.use("/listings", listings);
 
-app.use("/listings/:id/reviews",reviews);
-
+app.use("/listings/:id/reviews", reviews);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found"));
