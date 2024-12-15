@@ -87,7 +87,7 @@ body {
 }
 
 /* Cards */
-.card {
+.listing-card {
   border: none;
   margin-bottom: 2rem;
   border-radius: 0.5rem;

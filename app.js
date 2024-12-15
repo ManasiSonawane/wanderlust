@@ -2,13 +2,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
-const { listingSchema } = require("./schema");
+const { listingSchema,reveiwSchema } = require("./schema.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const Review = require("./models/review.js");
+const listings = require("./routes/listing.js");
+const reviews = require("./routes/review.js");
 const app = express();
 const PORT = 8080;
 const MONGO_URL =
@@ -68,29 +70,18 @@ app.get("/", (req, res) => {
     res.status(500).send("Failed to create sample listing");
   }
 });*/
+//const validateListing = (req,res,next) =>{
+ // let { error} = listingSchema.validate(req.body);
+  //if (error){
+  ////  let errMsg = error.details.map((el)=> el.message).join(",");
 
-// Fetch all listings  index route
-app.get(
-  "/listings",
-  wrapAsync(async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("listings/index.ejs", { allListings });
-  })
-);
-//New Route
-app.get("/listings/new", (req, res) => {
-  res.render("listings/new.ejs");
-});
+  //}else{
+ //   next();
+  //}
+//};
 
-//Show Route
-app.get(
-  "/listings/:id",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listings/show.ejs", { listing });
-  })
-);
+
+
 //Create Route ara
 
 //app.post("/listings", async (req, res) => {
@@ -105,72 +96,10 @@ app.get(
 // }
 //});
 
-//Create Route
-app.post(
-  "/listings",
-  wrapAsync(async (req, res, next) => {
-    const { error } = listingSchema.validate(req.body);
-    if (error) {
-      throw new ExpressError(
-        400,
-        error.details.map((el) => el.message).join(", ")
-      );
-    }
-    if (!req.body.listing) {
-      throw new ExpressError(400, "Send valid data for listing");
-    }
-    const newListing = new Listing(req.body.listing);
-    await newListing.save();
-    res.redirect("/listings");
-  })
-);
+app.use("/listings",listings);
 
-//Edit Route
+app.use("/listings/:id/reviews",reviews);
 
-app.get(
-  "/listings/:id/edit",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listings/edit.ejs", { listing });
-  })
-);
-
-//Update Route
-app.put(
-  "/listings/:id",
-  wrapAsync(async (req, res) => {
-    if (!req.body.listing) {
-      throw new ExpressError(400, "Send valid data for listing");
-    }
-    let { id } = req.params;
-    await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-    res.redirect(`/listings/${id}`);
-  })
-);
-//Delete Route
-app.delete(
-  "/listings/:id",
-  wrapAsync(async (req, res) => {
-    let { id } = req.params;
-    let deletedListing = await Listing.findByIdAndDelete(id);
-    console.log(deletedListing);
-    res.redirect("/listings");
-  })
-);
-
-//review
-//post
-app.post("/listing/:id/reviews", async(req, res)=>{
-let listing= await Listing.findById(req.params.id)
-let newReview = new Review(req.body.review);
-
-listing.reviews.push(newReview);
-await newReview.save();
-await listing.save();
-console.log("new review saved");
-res.send("new review saved");
-});
 
 app.all("*", (req, res, next) => {
   next(new ExpressError(404, "Page not found"));
