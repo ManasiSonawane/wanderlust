@@ -268,6 +268,94 @@ body {
   box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff;
   color: #000000;
 }
+.btn-create:hover {
+  background: #000000; /* Invert background color */
+  color: #efefef; /* Invert text color */
+}
 .btn-create:active {
   box-shadow: inset 1px 1px 3px #c8d0e7, inset -1px -1px 3px #fff;
+}
+
+/* Background color for the body */
+.bg-colorset {
+  background-color: #e9f7fd; /* Example: light gray background for the body */
+  min-height: 100vh; /* Ensures the body takes the full height of the page */
+}
+footer {
+  background-color: #f8f9fa; /* Light background color */
+  padding: 10px 0; /* Vertical padding */
+  font-size: 0.9rem; /* Slightly smaller text */
+  color: #333; /* Dark text color */
+  border-top: 1px solid #ddd; /* Light border on top */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-left {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-center {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.footer-center a,
+.footer-left p {
+  margin: 0;
+}
+
+.footer-center a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-center a:hover {
+  text-decoration: underline;
+}
+
+.footer-right i {
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.footer-right i:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: none;
+    margin-bottom: 10px;
+  }
+
+  .footer-right {
+    justify-content: center;
+    gap: 10px;
+  }
 }

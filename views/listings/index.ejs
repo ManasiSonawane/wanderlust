@@ -1,28 +1,62 @@
-<% layout("/layouts/boilerplate")%> 
-  
-    <h3> All listings</h3>
-    <form method="GET" action="/listings/new">
-      <button class="btn-create">Create New Listing</button>
-    </form>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-      <% for(let listing of allListings) { %>
-        <a href="/listings/<%= listing._id %>" class="listing-link">
-          <div class="card col listing-card">
-            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
-            <div class="card-img-overlay">Click to Open</div>
+<% layout("/layouts/boilerplate") %>
 
-            <div class="card-body">
-              <p class="card-text">
-                <b>
-                  <%= listing.title %>
-                </b><br>
-                <%= "₹" + listing.price.toLocaleString("en-IN") %>
-              </p>
-            </div>
-          </div>
-        </a>
-        <% } %>
+  <div class="container my-5 ">
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 class="display-6  fw-bold">All Listings</h3>
+      <form method="GET" action="/listings/new">
+        <button class="btn-create">Create New Listing</button>
+      </form>
     </div>
 
+    <!-- Sorting Section -->
+    <div class="d-flex justify-content-end align-items-center mb-4">
+      <span class="me-2">Sort By:</span>
+      <form method="GET" action="/listings" class="d-flex">
+        <!-- Sort by Recently Added -->
+        <button name="sort" value="recent" class="btn btn-light me-2">
+          <i class="bi bi-calendar-check"></i> Recently Added
+        </button>
 
- 
+        <!-- Sort by Country -->
+        <button name="sort" value="country" class="btn btn-light me-2">
+          <i class="bi bi-geo-alt"></i> Country
+        </button>
+
+        <!-- Sort by Price -->
+        <button name="sort" value="price" class="btn btn-light">
+          <i class="bi bi-currency-exchange"></i> Price
+        </button>
+      </form>
+    </div>
+
+    <!-- Listings Section -->
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+      <% for (let listing of allListings) { %>
+        <div class="col">
+          <a href="/listings/<%= listing._id %>" class="listing-link">
+            <div class="card listing-card">
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height:20rem">
+              <div class="card-img-overlay">Click to Open</div>
+              <div class="card-body">
+                <h5 class="card-title text-center"><b>
+                    <%= listing.title %>
+                  </b></h5>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <span class="price">
+                    <%= "₹" + listing.price.toLocaleString("en-IN") %>
+                  </span>
+                  <span class="country">
+                    <%= listing.country %>
+                  </span>
+                  <span class="unit">
+                    <%= "/" + listing.unit %>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <% } %>
+    </div>
+  </div>
