@@ -52,7 +52,7 @@ const listingSchema = new Schema({
     type: String,
     required: true,
   },
-  // Change this to an array of ObjectIds to store multiple reviews
+  owner: { type: Schema.Types.ObjectId, ref: "User" },
   reviews: [
     {
       type: Schema.Types.ObjectId,

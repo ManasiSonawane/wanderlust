@@ -15,6 +15,9 @@
               <div class="card-body">
                 <h5 class="card-title">Title: <%= listing.title %>
                 </h5>
+
+                <p class="card-text">Owner: <%= listing.owner.username %>
+                </p>
                 <p class="card-text">Description: <%= listing.description %>
                 </p>
                 <p class="card-text">Price: <strong>&#8377;<%= listing.price.toLocaleString("en-IN") %></strong></p>

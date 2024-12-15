@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const initData = require("./data.js");
+const sampleListings = require("./data.js");
 const Listing = require("../models/listing.js");
 
 const MONGO_URL =
@@ -19,8 +19,9 @@ async function main() {
 // Initialize database with data
 const initDB = async () => {
   try {
+    console.log("sampleListings.data", sampleListings);
     await Listing.deleteMany({}); // Delete existing listings
-    await Listing.insertMany(initData.data); // Insert new data
+    await Listing.insertMany(sampleListings); // Insert new data
     console.log("Data initialized successfully");
   } catch (err) {
     console.error("Error initializing the database:", err);

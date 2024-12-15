@@ -4,8 +4,8 @@ const sampleListings = [
     description:
       "High-quality, organic turmeric powder known for its vibrant color and health benefits.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1372767803/photo/curcuma-longa-powder-rhizomes-and-tea.jpg?s=612x612&w=is&k=20&c=8oUySD4OvLiF6MdFroWXI2p4sJh2jhv_KF5dRuzbDAk=",
+      filename: "listingimage",
     },
     price: 1500,
     location: "Mumbai, India",
@@ -14,14 +14,17 @@ const sampleListings = [
     enquiry: "Contact us for bulk orders and inquiries.",
     email: "info@spicesupplier.com",
     number: "+91-9876543210",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Black Pepper",
     description:
       "Whole black peppercorns with a strong, bold flavor, perfect for culinary use.",
     image: {
+      url: "https://m.media-amazon.com/images/I/41fvjHsKTeL._SX300_SY300_QL70_FMwebp_.jpg",
       filename: "listingimage",
-      url: "https://unsplash.com/photos/a-white-bowl-filled-with-lots-of-black-beans-4cyW9hB_cIE",
     },
     price: 2500,
     location: "Colombo, Sri Lanka",
@@ -30,14 +33,17 @@ const sampleListings = [
     enquiry: "For wholesale inquiries, please get in touch.",
     email: "sales@pepperworld.com",
     number: "+94-773356781",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Cumin Seeds",
     description:
       "Aromatic whole cumin seeds, widely used in curries and spice blends.",
     image: {
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT32w-RL42wAT7jHcP7tIfNyMB6OQ3yeRfJ0YAiC416_vocIBUc4cbGPaEBdGWCRFHcC5I1ANdLQ9CuN78YLub-mg",
       filename: "listingimage",
-      url: "https://unsplash.com/photos/photo-of-cumin-seeds-1600180758895-6c9ec3bfa27bhttps://unsplash.com/photos/closeup-of-cumin-seed-axXx3sidcG8",
     },
     price: 1800,
     location: "Ahmedabad, India",
@@ -46,14 +52,17 @@ const sampleListings = [
     enquiry: "We offer competitive rates for bulk purchases.",
     email: "contact@cuminex.com",
     number: "+91-9876543211",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Clove",
     description:
       "Aromatic dried flower buds used as a spice for their pungent flavor and medicinal properties.",
     image: {
-      filename: "listingimage",
       url: "https://plus.unsplash.com/premium_photo-1668446314011-301c7a98b6a9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      filename: "listingimage",
     },
     price: 4000,
     location: "Toamasina, Madagascar",
@@ -62,14 +71,17 @@ const sampleListings = [
     enquiry: "Get in touch for large order requirements.",
     email: "info@cloveworld.com",
     number: "+261-320456789",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Coriander Seeds",
     description:
       "Whole coriander seeds with a warm, citrusy flavor, widely used in seasoning and curries.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1417704066/photo/coriander-seeds.jpg?s=612x612&w=is&k=20&c=j0757s9s8n3jtAH7t0M3yWr-Ki5uJwaQ9Igrp8wGUbk=",
+      filename: "listingimage",
     },
     price: 1200,
     location: "Cairo, Egypt",
@@ -78,15 +90,17 @@ const sampleListings = [
     enquiry: "For price details, contact us via email or phone.",
     email: "contact@spiceseg.com",
     number: "+20-1012345678",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
-
   {
     title: "Basmati Rice",
     description:
       "Long-grain, aromatic basmati rice, perfect for biryanis and special dishes.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/175586192/photo/basmati-rice.jpg?s=612x612&w=is&k=20&c=g8O0ypJgtCEzoq4U95CzFfF_umP-vA5IYuBBM8-NbCc=",
+      filename: "listingimage",
     },
     price: 2000,
     location: "Punjab, India",
@@ -95,13 +109,16 @@ const sampleListings = [
     enquiry: "Contact us for bulk orders or special requirements.",
     email: "info@basmatirice.com",
     number: "+91-9876543212",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Jasmine Rice",
     description: "Soft, fragrant rice widely used in Southeast Asian cuisine.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1322613316/photo/rice-in-wooden-bowl-on-rice-and-rice-ears-background-natural-food-high-in-protein.jpg?s=612x612&w=is&k=20&c=ZcGZWUWjDA9ramCJMMWK78WCgqeq2_n--HTt3r60bv0=",
+      filename: "listingimage",
     },
     price: 2200,
     location: "Bangkok, Thailand",
@@ -110,13 +127,16 @@ const sampleListings = [
     enquiry: "For orders and queries, email us directly.",
     email: "sales@jasmineworld.com",
     number: "+66-891234567",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Arborio Rice",
     description: "Short-grain rice perfect for creamy risotto dishes.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1210253208/photo/white-rice-arborio-in-a-wooden-bowl-on-a-napkin-on-a-light-blue-background.jpg?s=612x612&w=is&k=20&c=L5zDF7iPDiLXNgjRIO0oOUx90PLGK6I0FSqfO7YYl0Q=",
+      filename: "listingimage",
     },
     price: 2800,
     location: "Milan, Italy",
@@ -125,14 +145,17 @@ const sampleListings = [
     enquiry: "For special pricing, reach out to our team.",
     email: "contact@arboriorice.com",
     number: "+39-3209876543",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Parboiled Rice",
     description:
       "Partially boiled rice that retains more nutrients than white rice.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/478968277/photo/parboiled-rice.jpg?s=612x612&w=0&k=20&c=KPWHkWi-yFJdJPT6MHs1X532YJZ2xmsoZLv80oMG_Yg=",
+      filename: "listingimage",
     },
     price: 1800,
     location: "Chennai, India",
@@ -141,14 +164,17 @@ const sampleListings = [
     enquiry: "Contact us for competitive prices and inquiries.",
     email: "info@parboiledricesupplier.com",
     number: "+91-9765432109",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Sushi Rice",
     description:
       "Short-grain sticky rice, essential for making authentic sushi rolls.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1281196664/photo/recipe-for-inari-sushi-a-traditional-japanese-home-cooked-dish.jpg?s=612x612&w=is&k=20&c=EAp0ZKMV4zs30BMXkizIY80nUFhbH_O6FYAMYLqFb5Q=",
+      filename: "listingimage",
     },
     price: 3200,
     location: "Tokyo, Japan",
@@ -157,14 +183,16 @@ const sampleListings = [
     enquiry: "For wholesale and bulk orders, contact us.",
     email: "info@sushirice.com",
     number: "+81-9076543210",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
-
   {
     title: "Cotton T-Shirt",
     description: "Soft, breathable cotton T-shirt perfect for casual wear.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1345934516/photo/natural-organic-cotton-t-shirts-and-cotton-plant-flowers-on-white-table-eco-clothes-fashion.jpg?s=612x612&w=is&k=20&c=SUGX7Lo7h-3nXUCbn0BF6jbgSeVVVaCMIfcVjeus5M4=",
+      filename: "listingimage",
     },
     price: 500,
     location: "Tiruppur, India",
@@ -173,13 +201,16 @@ const sampleListings = [
     enquiry: "For bulk orders and custom sizes, please reach out.",
     email: "contact@tshirtindia.com",
     number: "+91-9876543213",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Denim Jeans",
     description: "Durable, high-quality denim jeans for men and women.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1032057264/photo/a-rack-of-second-hand-jeans.jpg?s=612x612&w=is&k=20&c=eJLeW1z3KNq-bmJ1gWrTvmXkivuzUAVaOlG8FdGwJ1Q=",
+      filename: "listingimage",
     },
     price: 2000,
     location: "Los Angeles, USA",
@@ -188,14 +219,17 @@ const sampleListings = [
     enquiry: "Get in touch for special pricing on bulk orders.",
     email: "sales@denimworld.com",
     number: "+1-3234567890",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Silk Saree",
     description:
       "Luxurious silk saree with elegant embroidery and rich texture.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/89323827/photo/indian-sarees.jpg?s=612x612&w=is&k=20&c=whKeYRcmvWxdRRgCj2-MxAlLS5bpTOgojM94vkMf5kE=",
+      filename: "listingimage",
     },
     price: 15000,
     location: "Kanchipuram, India",
@@ -204,13 +238,16 @@ const sampleListings = [
     enquiry: "Contact us for customized orders and pricing.",
     email: "info@silkex.com",
     number: "+91-9876543214",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Woolen Sweater",
     description: "Warm, cozy woolen sweater ideal for winter wear.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/491643542/photo/pile-of-beige-woolen-clothes-on-a-white-background.jpg?s=612x612&w=is&k=20&c=KrjFKhprwBGpkn_YDHwQuNaGnTfp813lxOxnnUeY5EI=",
+      filename: "listingimage",
     },
     price: 2500,
     location: "Edinburgh, Scotland",
@@ -219,13 +256,16 @@ const sampleListings = [
     enquiry: "For wholesale inquiries, please contact us.",
     email: "support@woolenscotland.com",
     number: "+44-1312345678",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Leather Jacket",
     description: "Premium leather jacket with a stylish, modern design.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1354251572/photo/woman-black-leather-jacket-isolated-on-white-background.jpg?s=1024x1024&w=is&k=20&c=oZz3BmKxbZ5fbZ6QqteTJ4NNoUFP4DvlRaYH0g3ZGRk=",
+      filename: "listingimage",
     },
     price: 10000,
     location: "Milan, Italy",
@@ -234,15 +274,17 @@ const sampleListings = [
     enquiry: "Email us for special orders and bulk purchases.",
     email: "sales@leatherfashion.com",
     number: "+39-3201234567",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
-
   {
     title: "Smartphone",
     description:
       "Latest model smartphone with advanced features and high-speed performance.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1322157897/photo/close-up-of-a-businessman-hand-holding-a-smartphone-white-screen-is-blank-the-background-is.jpg?s=612x612&w=is&k=20&c=lXI6KA8aoH3W_gpmLnq-ad6O_kKs5CziSK060YhlA5I=",
+      filename: "listingimage",
     },
     price: 50000,
     location: "Shenzhen, China",
@@ -251,14 +293,17 @@ const sampleListings = [
     enquiry: "For wholesale inquiries and special discounts, contact us.",
     email: "sales@smartphoneschina.com",
     number: "+86-13987654321",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Laptop",
     description:
       "Lightweight, high-performance laptop ideal for work and study.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1389603578/photo/laptop-blank-screen-on-wood-table-with-blurred-coffee-shop-cafe-interior-background-and.jpg?s=612x612&w=0&k=20&c=bPf3XxUZJZ6HRw7BE75ur1wBMCm_r4QAr-_lajERIyU=",
+      filename: "listingimage",
     },
     price: 70000,
     location: "San Francisco, USA",
@@ -267,14 +312,17 @@ const sampleListings = [
     enquiry: "Contact us for bulk orders and pricing details.",
     email: "support@laptopusa.com",
     number: "+1-4151234567",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Smartwatch",
     description:
       "Sleek smartwatch with fitness tracking and smart notifications.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1286099942/photo/close-up-of-hand-touching-smartwatch-with-health-app-on-the-screen-gadget-for-fitness-active.jpg?s=612x612&w=0&k=20&c=zX9Fko_T6qppRO8J8BSYu4DovmLjPFKwi_x6l0GzCq0=",
+      filename: "listingimage",
     },
     price: 15000,
     location: "Seoul, South Korea",
@@ -283,14 +331,17 @@ const sampleListings = [
     enquiry: "For orders, please contact us via email.",
     email: "info@smartwatchkr.com",
     number: "+82-1045678901",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Wireless Earbuds",
     description:
       "Compact wireless earbuds with crystal-clear sound and long battery life.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/1194814887/photo/apple-airpods-wireless-bluetooth-headphones-and-charging-case.jpg?s=612x612&w=0&k=20&c=SJWyv7d3oBYyJBBpFzLCMWX5_yiT7siVb63O-Ctqv-Q=",
+      filename: "listingimage",
     },
     price: 8000,
     location: "Tokyo, Japan",
@@ -299,14 +350,17 @@ const sampleListings = [
     enquiry: "Contact us for bulk orders and special offers.",
     email: "sales@earbudsjapan.com",
     number: "+81-9023456789",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
   {
     title: "Smart TV",
     description:
       "4K Ultra HD smart TV with streaming apps and voice control features.",
     image: {
-      filename: "listingimage",
       url: "https://media.istockphoto.com/id/507832501/photo/family-watching-television-in-living-room.jpg?s=612x612&w=0&k=20&c=uL4G7oJmpfh1QXNstw9Ilsh-1ix6lCwCkLbGVNnepCM=",
+      filename: "listingimage",
     },
     price: 60000,
     location: "Seoul, South Korea",
@@ -315,198 +369,10 @@ const sampleListings = [
     enquiry: "For orders and further inquiries, reach out to us.",
     email: "info@smarttvkr.com",
     number: "+82-1045678902",
-  },
-  {
-    title: "Argentinian Beef",
-    description:
-      "Premium quality beef from Argentina, known for its rich flavor and tenderness.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1224199178/photo/raw-steaks-beef-tenderloin-on-black-stone-background.jpg?s=612x612&w=is&k=20&c=RE7vXa6M0eeIuf9rjMf46KcAozB59fY6zX_bh8qoeNo=",
-    },
-    price: 4000,
-    location: "Buenos Aires, Argentina",
-    country: "Argentina",
-    unit: "kg",
-    enquiry: "Contact us for wholesale and shipment details.",
-    email: "sales@argentinabeef.com",
-    number: "+54-9112345678",
-  },
-  {
-    title: "German Machinery Parts",
-    description:
-      "Precision-engineered machinery parts made in Germany, ideal for industrial applications.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/950721692/photo/industrial-machine-parts.jpg?s=612x612&w=is&k=20&c=-V9vZ7vNRuSfxkX4MLxh9pmqB4F8ZxYKrGZgVwrzi6k=",
-    },
-    price: 15000,
-    location: "Berlin, Germany",
-    country: "Germany",
-    unit: "set",
-    enquiry: "For bulk orders and customized parts, please reach out.",
-    email: "info@germanmachinery.com",
-    number: "+49-1702345678",
-  },
-  {
-    title: "Brazilian Coffee Beans",
-    description:
-      "Freshly roasted premium coffee beans from Brazil, offering a rich and full-bodied flavor.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1182854525/photo/freshly-roasted-coffee-beans.jpg?s=612x612&w=is&k=20&c=eQmgLtpqs7TgW56D3E8EFh4jwFEf9flx2nVAAxkk5dM=",
-    },
-    price: 3500,
-    location: "São Paulo, Brazil",
-    country: "Brazil",
-    unit: "kg",
-    enquiry: "For large orders and special blends, contact us directly.",
-    email: "sales@brazilcoffeebeans.com",
-    number: "+55-1134567890",
-  },
-  {
-    title: "Italian Olive Oil",
-    description:
-      "Extra virgin olive oil from Italy, cold-pressed for the finest quality and flavor.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1143567687/photo/italian-olive-oil.jpg?s=612x612&w=is&k=20&c=HsO-VE5imjw4JGiZj9tXvSBOo9mmXoMAcbpQMYy-n5g=",
-    },
-    price: 5000,
-    location: "Tuscany, Italy",
-    country: "Italy",
-    unit: "liter",
-    enquiry: "For bulk orders and special pricing, please contact us.",
-    email: "info@italianoliveoil.com",
-    number: "+39-3456789012",
-  },
-  {
-    title: "Kenyan Tea",
-    description:
-      "High-quality Kenyan tea leaves, known for their bold flavor and rich aroma.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1187989295/photo/tea-leaves.jpg?s=612x612&w=is&k=20&c=FszOxl1GEZV7VAKs84KhqWRWOK8Ck5HhzVXipMw8C3I=",
-    },
-    price: 2000,
-    location: "Nairobi, Kenya",
-    country: "Kenya",
-    unit: "kg",
-    enquiry: "Please contact us for shipment and price inquiries.",
-    email: "sales@kenyatea.com",
-    number: "+254-701234567",
-  },
-  {
-    title: "Canadian Maple Syrup",
-    description:
-      "Pure and organic maple syrup from Canada, harvested from the finest maple trees.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/905297284/photo/fresh-maple-syrup.jpg?s=612x612&w=is&k=20&c=-M-lqPdbU4R9zU8U3pt9V9PSq5Ygds80MLvsTkHnxNE=",
-    },
-    price: 8000,
-    location: "Quebec, Canada",
-    country: "Canada",
-    unit: "liter",
-    enquiry: "For bulk pricing and delivery, please contact us.",
-    email: "info@canadianmaplesyrup.com",
-    number: "+1-5142345678",
-  },
-  {
-    title: "Thai Jasmine Rice",
-    description:
-      "Fragrant and sticky Thai Jasmine rice, ideal for making authentic Thai dishes.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1281196664/photo/recipe-for-inari-sushi-a-traditional-japanese-home-cooked-dish.jpg?s=612x612&w=is&k=20&c=eAp0ZKMV4zs30BMXkizIY80nUFhbH_O6FYAMYLqFb5Q=",
-    },
-    price: 2300,
-    location: "Bangkok, Thailand",
-    country: "Thailand",
-    unit: "kg",
-    enquiry: "Contact us for wholesale inquiries.",
-    email: "sales@thaisupplier.com",
-    number: "+66-891234567",
-  },
-  {
-    title: "Swiss Watches",
-    description:
-      "Luxury Swiss-made watches known for their precision and timeless design.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1364948623/photo/swiss-watches.jpg?s=612x612&w=is&k=20&c=p8TXGfnG9lnKqf47zqa14WeZgXcbf8n7zsjEXhpghAo=",
-    },
-    price: 25000,
-    location: "Geneva, Switzerland",
-    country: "Switzerland",
-    unit: "piece",
-    enquiry: "For more information and custom orders, reach out to us.",
-    email: "contact@swisswatches.com",
-    number: "+41-786543210",
-  },
-  {
-    title: "Australian Wool",
-    description:
-      "Premium Australian wool, soft, durable, and perfect for high-quality textiles.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/924406542/photo/sheeps-wool.jpg?s=612x612&w=is&k=20&c=ekYc0pA1m-p3Rl16n5j7mMb06MmFAgflhNnOdLrFuHo=",
-    },
-    price: 9000,
-    location: "Sydney, Australia",
-    country: "Australia",
-    unit: "kg",
-    enquiry: "For bulk purchases and custom wool processing, contact us.",
-    email: "sales@australianwool.com",
-    number: "+61-401234567",
-  },
-  {
-    title: "South African Wine",
-    description:
-      "Award-winning South African wines with rich flavors and premium quality.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1312572040/photo/wine-bottles-and-glasses.jpg?s=612x612&w=is&k=20&c=cEgaL9lMc2WZvA1V3gt0wmb5ckCGVzpvd_RP95nTO4o=",
-    },
-    price: 4500,
-    location: "Stellenbosch, South Africa",
-    country: "South Africa",
-    unit: "bottle",
-    enquiry: "For orders, private labels, and pricing, reach out to us.",
-    email: "info@sawine.com",
-    number: "+27-711234567",
-  },
-  {
-    title: "Vietnamese Peppercorns",
-    description:
-      "Spicy and aromatic Vietnamese peppercorns, known for their intense heat.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1144755280/photo/black-pepper-seeds-in-wooden-bowl.jpg?s=612x612&w=is&k=20&c=ys1hNMc0uhd3-K2NbsL-Jt5GbmWtvZopVln0KxsD1gk=",
-    },
-    price: 3500,
-    location: "Ho Chi Minh City, Vietnam",
-    country: "Vietnam",
-    unit: "kg",
-    enquiry: "For wholesale and bulk orders, contact us for pricing.",
-    email: "sales@vietnampepper.com",
-    number: "+84-912345678",
-  },
-  {
-    title: "Japanese Ceramic Pottery",
-    description:
-      "Traditional Japanese handmade pottery, known for its exquisite craftsmanship.",
-    image: {
-      filename: "listingimage",
-      url: "https://media.istockphoto.com/id/1319378839/photo/japanese-ceramics.jpg?s=612x612&w=is&k=20&c=NeR2Akgc49ME8gkgM5etPpJ_JMNkl9K2ysf9akzV58g=",
-    },
-    price: 12000,
-    location: "Kyoto, Japan",
-    country: "Japan",
-    unit: "piece",
-    enquiry: "For custom orders and further details, contact us.",
-    email: "info@japanpottery.com",
-    number: "+81-9023456789",
+    reviews: [],
+    owner: "675ef510691ac0bbb6c38aa7",
+    __v: 0,
   },
 ];
-module.exports = { data: sampleListings };
+
+module.exports = sampleListings;
