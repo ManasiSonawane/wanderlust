@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 const path = require("path");
+require("dotenv").config();
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
@@ -18,8 +19,8 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 const app = express();
 const PORT = 8080;
-const MONGO_URL =
-  "mongodb+srv://alfatest:test12345@testclustor.1vgul.mongodb.net/wanderlust";
+
+const MONGO_URL = process.env.MONGO_URL;
 
 // Middleware
 app.use(express.json()); // Parse JSON bodies
