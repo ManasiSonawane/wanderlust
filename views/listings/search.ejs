@@ -1,0 +1,15 @@
+<h1>Search Results for "<%= query %>"</h1>
+
+<% if (searchResults.length===0) { %>
+    <p>No listings found.</p>
+    <% } else { %>
+        <ul>
+            <% searchResults.forEach((listing)=> { %>
+                <li>
+                    <a href="/listings/<%= listing._id %>">
+                        <%= listing.title %> - <%= listing.country %>
+                    </a>
+                </li>
+                <% }); %>
+        </ul>
+        <% } %>

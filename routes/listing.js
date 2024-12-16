@@ -6,11 +6,13 @@ const ExpressError = require("../utils/ExpressError.js");
 const Listing = require("../models/listing.js");
 const { isLoggedIn, isOwner } = require("../middleware.js");
 // Fetch all listings with sorting functionality
+// Fetch all listings with sorting and search functionality
 router.get(
   "/",
   wrapAsync(async (req, res) => {
-    const { sort } = req.query;
+    const { sort, search } = req.query;
     let sortCriteria = {};
+    let searchCriteria = {};
 
     // Handle sorting based on the sort query parameter
     if (sort === "recent") {
@@ -21,7 +23,20 @@ router.get(
       sortCriteria = { price: 1 }; // Sort by ascending price
     }
 
-    const allListings = await Listing.find({}).sort(sortCriteria);
+    // Handle search query
+    if (search) {
+      const searchRegex = new RegExp(search, "i"); // Case-insensitive search
+      searchCriteria = {
+        $or: [
+          { title: searchRegex },
+          { description: searchRegex },
+          { location: searchRegex },
+          { country: searchRegex },
+        ],
+      };
+    }
+
+    const allListings = await Listing.find(searchCriteria).sort(sortCriteria);
     res.render("listings/index.ejs", { allListings });
   })
 );

@@ -8,13 +8,20 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav me-auto"> <!-- Push the links to the start -->
+      <div class="navbar-nav me-auto">
         <a class="nav-link active" href="/">Home</a>
         <a class="nav-link" href="/listings">All Listings</a>
         <a class="nav-link" href="/listings/new">Add New Listing</a>
       </div>
 
-      <div class="navbar-nav ms-auto"> <!-- Authorization links aligned to the end -->
+      <!-- Search Form -->
+      <form class="d-flex me-auto" action="/listings" method="GET">
+        <input class="form-control me-2" type="search" name="search" placeholder="Search listings..."
+          aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <div class="navbar-nav ms-auto">
         <% if (!currUser) { %>
           <a class="nav-link css-button-neumorphic me-2" href="/signup">Sign Up</a>
           <a class="nav-link css-button-neumorphic" href="/login">Login</a>
