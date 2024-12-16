@@ -430,3 +430,9 @@ footer {
   color: #fff; /* White text color */
   box-shadow: 2px 2px 4px #c8d0e7, -1px -1px 3px #fff; /* Maintain shadow effect */
 }
+.bg-image {
+  background-image: url("https://ocean-airfreight.com/wp-content/uploads/2021/06/logistics-companies-in-Calgary-1.jpg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
