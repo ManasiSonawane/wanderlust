@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const { listingSchema, reviewSchema } = require("./schema.js");
 const path = require("path");
+const MongoStore = require("connect-mongo");
 require("dotenv").config();
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
@@ -44,7 +45,18 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+const store = MongoStore.create({
+  mongoUrl: MONGO_URL,
+  crypto: {
+    secret: "mysupersecretcode",
+  },
+  touchafter: 24 * 60 * 60,
+});
+store.on("error", function (e) {
+  console.log("Session store error", e);
+});
 const sessionOptions = {
+  store,
   secret: "mysupersecretcode",
   resave: false,
   saveUninitialized: true,
