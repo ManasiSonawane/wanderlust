@@ -64,22 +64,43 @@ router.post(
 router.delete(
   "/:reviewId",
   isLoggedIn,
-  isReviewAuthor,
+  // isReviewAuthor,
   wrapAsync(async (req, res) => {
     const { id, reviewId } = req.params;
 
-    // Validate ObjectIds
-    if (
-      !mongoose.Types.ObjectId.isValid(id) ||
-      !mongoose.Types.ObjectId.isValid(reviewId)
-    ) {
-      throw new ExpressError("Invalid listing or review ID", 400);
-    }
+    try {
+      // Validate ObjectIds
+      if (
+        !mongoose.Types.ObjectId.isValid(id) ||
+        !mongoose.Types.ObjectId.isValid(reviewId)
+      ) {
+        throw new ExpressError("Invalid listing or review ID", 400);
+      }
 
-    await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-    await Review.findByIdAndDelete(reviewId);
-    req.flash("success", "Review Deleted!");
-    res.redirect(`/listings/${id}`);
+      // Remove review reference from the listing
+      const listing = await Listing.findByIdAndUpdate(
+        id,
+        { $pull: { reviews: reviewId } },
+        { new: true } // Return updated document
+      );
+
+      if (!listing) {
+        throw new ExpressError("Listing not found", 404);
+      }
+
+      // Delete the review document
+      const review = await Review.findByIdAndDelete(reviewId);
+
+      if (!review) {
+        throw new ExpressError("Review not found", 404);
+      }
+
+      req.flash("success", "Review deleted successfully!");
+      res.redirect(`/listings/${id}`);
+    } catch (e) {
+      req.flash("error", e.message || "Something went wrong");
+      res.redirect(`/listings/${id}`);
+    }
   })
 );
 
